@@ -25,7 +25,6 @@
 <script>
 import { mapMutations } from 'vuex';
 import TabBar from '@/components/TabBar';
-import store from '../store';
 import * as types from '../store/types';
 
 export default {
@@ -35,7 +34,7 @@ export default {
   },
   data() {
     return {
-      lang: store.state.preference.lang,
+      lang: this.$store.state.preference.lang,
       mode: 'classic',
     };
   },
@@ -46,7 +45,7 @@ export default {
     },
     wipe() {
       this.wipeLang();
-      this.lang = store.state.preference.lang;
+      this.lang = this.$store.state.preference.lang;
       this.$i18n.locale = this.lang;
     },
     ...mapMutations({

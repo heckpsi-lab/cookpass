@@ -4,6 +4,12 @@ const state = {
   lang: (navigator.language || navigator.browserLanguage).toLowerCase(),
 };
 
+const getters = {
+};
+
+const actions = {
+};
+
 const mutations = {
   [types.SET_LANG]: (vuexState, lang) => {
     vuexState.lang = lang;
@@ -16,5 +22,7 @@ const mutations = {
 export default {
   namespace: 'preference/',
   state,
+  getters,
+  actions,
   mutations,
 };
