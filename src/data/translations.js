@@ -5,6 +5,8 @@ export default {
     manage: 'Manage',
     settings: 'Settings',
     about: 'About',
+    computation_mode: 'Computation Mode',
+    wipe_data: 'Erase All User Data',
   },
   'zh-cn': {
     cookpass: '煮密码',
@@ -12,5 +14,7 @@ export default {
     manage: '管理',
     settings: '设置',
     about: '关于',
+    computation_mode: '计算模式',
+    wipe_data: '清除所有用户数据',
   },
 };

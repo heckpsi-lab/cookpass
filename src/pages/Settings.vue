@@ -9,9 +9,16 @@
     md-input-container
       label(for="language")
         | Language
-      md-select(v-model="lang" v-on:change="changeLanguage()")
+      md-select(v-model="lang", v-on:change="changeLanguage()")
         md-option(value="zh-cn")| 简体中文
         md-option(value="en")| English
+    md-input-container
+      label(for="computation_mode")
+        | {{ $t('computation_mode') }}
+      md-select(v-model="mode")
+        md-option(value="classic")| Classic
+    md-button.md-raised.md-warn#erase(@click.native="wipe()")
+      | {{ $t('wipe_data') }}
   tab-bar(tab-selected="3")
 </template>
 
@@ -29,6 +36,7 @@ export default {
   data() {
     return {
       lang: store.state.preference.lang,
+      mode: 'classic',
     };
   },
   methods: {
@@ -36,12 +44,21 @@ export default {
       this.setLang(this.lang);
       this.$i18n.locale = this.lang;
     },
+    wipe() {
+      this.wipeLang();
+      this.lang = store.state.preference.lang;
+      this.$i18n.locale = this.lang;
+    },
     ...mapMutations({
       setLang: types.SET_LANG,
+      wipeLang: types.WIPE_LANG,
     }),
   },
 };
 </script>
 
 <style lang="stylus">
+#erase
+  margin: 0
+  width: 100%
 </style>
