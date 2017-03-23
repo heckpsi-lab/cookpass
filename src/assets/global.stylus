@@ -9,3 +9,6 @@ body
   overflow-y: scroll
 .content-container
   padding: 20px 20px 0 20px
+  height: 496px
+  overflow-y: scroll
+  position: relative

@@ -6,37 +6,35 @@
         md-icon| dashboard
       h2.md-title(style="flex: 1")| {{ $t('manage') }}
     .content-container
-      md-button.md-raised.md-primary#add-profile
-        | Add New Profile
-      md-card(md-with-hover)
-        md-card-header
-          .md-title
-            | QQ
-          .md-subhead
-            | 443539548
-        md-card-content
-          | Engine: PassNexuser <br>
-          | Length: 12 <br>
-          | Strength: 10000
-        md-card-actions
-          md-button| Edit
-          md-button| Delete
+      profile-card(
+        software="QQ",
+        account="12345",
+        engine="cook",
+        :length="10",
+        :strength="10000",
+      )
+    md-button.md-fab
+      md-icon| add
   tab-bar(tab-selected="2")
 </template>
 
 <script>
 import TabBar from '@/components/TabBar';
+import ProfileCard from '@/components/ProfileCard';
 
 export default {
   name: 'Manage',
   components: {
     TabBar,
+    ProfileCard,
   },
 };
 </script>
 
 <style lang="stylus" scoped>
-#add-profile
-  margin: 0 auto 20px auto
-  width: 100%
+.md-fab
+  position: absolute
+  bottom: 64px
+  right: 8px
+  z-index: 700
 </style>

@@ -58,4 +58,5 @@ export default {
   position: absolute
   width: 100%
   bottom: 0
+  z-index: 100
 </style>

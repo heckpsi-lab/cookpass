@@ -6,7 +6,7 @@
         md-icon| fingerprint
       h2.md-title(style="flex: 1")| {{ $t('cookpass') }}
     .justify-container
-      .content-container
+      .home-container
         md-input-container(md-has-password)
           label(for="password")
             | Password
@@ -76,6 +76,7 @@ export default {
   display: flex
   align-items: center
   justify-content: center
-.content-container
+.home-container
+  margin: 0 40px 0 40px
   width: 100%
 </style>
