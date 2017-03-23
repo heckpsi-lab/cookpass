@@ -16,7 +16,7 @@
       label(for="computation_mode")
         | {{ $t('computation_mode') }}
       md-select(v-model="mode")
-        md-option(value="classic")| Classic
+        md-option(value="webworker")| WebWorker
     md-button.md-raised.md-warn#erase(@click.native="wipe()")
       | {{ $t('wipe_data') }}
   tab-bar(tab-selected="3")
@@ -35,7 +35,7 @@ export default {
   data() {
     return {
       lang: this.$store.state.preference.lang,
-      mode: 'classic',
+      mode: 'webworker',
     };
   },
   methods: {
@@ -56,7 +56,7 @@ export default {
 };
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 #erase
   margin: 0
   width: 100%

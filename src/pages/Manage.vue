@@ -35,7 +35,7 @@ export default {
 };
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 #add-profile
   margin: 0 auto 20px auto
   width: 100%
