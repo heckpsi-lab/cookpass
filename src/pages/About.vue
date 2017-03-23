@@ -1,14 +1,14 @@
 <template lang="pug">
 .tab-bar-container
-  | Home
-  tab-bar(tab-selected="1")
+  | About
+  tab-bar(tab-selected="4")
 </template>
 
 <script>
 import TabBar from '@/components/TabBar';
 
 export default {
-  name: 'Home',
+  name: 'About',
   components: {
     TabBar,
   },
