@@ -1,0 +1,9 @@
+body
+  width: 360px
+  height: 600px
+  margin: 0
+.tab-bar-container
+  position: relative
+  height: 600px
+  padding-bottom: 56px
+  overflow-y: scroll
