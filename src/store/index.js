@@ -10,6 +10,6 @@ export default new Vuex.Store({
     preference,
   },
   plugins: [createPersistedState({
-    paths: ['preference'],
+    paths: ['preference.lang'],
   })],
 });

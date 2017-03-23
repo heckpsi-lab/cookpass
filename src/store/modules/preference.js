@@ -1,4 +1,3 @@
-import Vue from 'vue';
 import * as types from '../types';
 
 const state = {
@@ -8,7 +7,6 @@ const state = {
 const mutations = {
   [types.SET_LANG]: (vuexState, lang) => {
     vuexState.lang = lang;
-    Vue.config.lang = lang;
   },
 };
 

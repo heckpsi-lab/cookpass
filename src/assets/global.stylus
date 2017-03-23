@@ -7,3 +7,5 @@ body
   height: 600px
   padding-bottom: 56px
   overflow-y: scroll
+.content-container
+  padding: 20px 20px 0 20px

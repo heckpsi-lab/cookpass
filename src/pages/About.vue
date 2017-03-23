@@ -1,10 +1,10 @@
 <template lang="pug">
 .tab-bar-container
   md-theme(md-name="indigo")
-    md-toolbar(class="md-dense")
-      md-button(class="md-icon-button")
+    md-toolbar.md-dense
+      md-button.md-icon-button
         md-icon| stars
-      h2(class="md-title" style="flex: 1")| {{ $t('about') }}
+      h2.md-title(style="flex: 1")| {{ $t('about') }}
   tab-bar(tab-selected="4")
 </template>
 
