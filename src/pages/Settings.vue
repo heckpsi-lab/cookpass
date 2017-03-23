@@ -4,7 +4,7 @@
     md-toolbar(class="md-dense")
       md-button(class="md-icon-button")
         md-icon| settings
-      h2(class="md-title" style="flex: 1")| Settings
+      h2(class="md-title" style="flex: 1")| {{ $t('settings') }}
   tab-bar(tab-selected="3")
 </template>
 

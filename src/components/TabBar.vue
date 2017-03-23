@@ -7,25 +7,25 @@
         md-icon="fingerprint",
         href="#/",
         :md-active="tabSelected == 1",
-      )| Home
+      )| {{ $t("home") }}
       md-bottom-bar-item(
         @click.native="updateTheme(2)",
         md-icon="dashboard",
         href="#/manage",
         :md-active="tabSelected == 2",
-      )| Manage
+      )| {{ $t("manage") }}
       md-bottom-bar-item(
         @click.native="updateTheme(3)",
         md-icon="settings",
         href="#/settings",
         :md-active="tabSelected == 3",
-      )| Settings
+      )| {{ $t("settings") }}
       md-bottom-bar-item(
         @click.native="updateTheme(4)",
         md-icon="stars",
         href="#/about",
         :md-active="tabSelected == 4",
-      )| About
+      )| {{ $t("about") }}
 </template>
 
 <script>

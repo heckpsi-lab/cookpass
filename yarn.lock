@@ -4713,6 +4713,10 @@ vue-hot-reload-api@^2.0.11:
   version "2.0.11"
   resolved "http://registry.npm.taobao.org/vue-hot-reload-api/download/vue-hot-reload-api-2.0.11.tgz#bf26374fb73366ce03f799e65ef5dfd0e28a1568"
 
+vue-i18n@^6.0.0-beta.1:
+  version "6.0.0-beta.1"
+  resolved "http://registry.npm.taobao.org/vue-i18n/download/vue-i18n-6.0.0-beta.1.tgz#299c6f3d15c9459d4c63af13073a8bffc25a8b80"
+
 vue-loader@^11.1.4:
   version "11.2.0"
   resolved "http://registry.npm.taobao.org/vue-loader/download/vue-loader-11.2.0.tgz#4a2443d7da429193aafdcb0f64215f9f25f62260"

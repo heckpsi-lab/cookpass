@@ -4,7 +4,7 @@
     md-toolbar(class="md-dense")
       md-button(class="md-icon-button")
         md-icon| fingerprint
-      h2(class="md-title" style="flex: 1")| CookPass
+      h2(class="md-title" style="flex: 1")| {{ $t('cookpass') }}
   tab-bar(tab-selected="1")
 </template>
 

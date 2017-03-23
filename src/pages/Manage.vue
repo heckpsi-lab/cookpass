@@ -4,7 +4,7 @@
     md-toolbar(class="md-dense")
       md-button(class="md-icon-button")
         md-icon| dashboard
-      h2(class="md-title" style="flex: 1")| Manage
+      h2(class="md-title" style="flex: 1")| {{ $t('manage') }}
   tab-bar(tab-selected="2")
 </template>
 
