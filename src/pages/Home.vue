@@ -1,6 +1,10 @@
 <template lang="pug">
 .tab-bar-container
-  | Home
+  md-theme(md-name="blue")
+    md-toolbar(class="md-dense")
+      md-button(class="md-icon-button")
+        md-icon| fingerprint
+      h2(class="md-title" style="flex: 1")| CookPass
   tab-bar(tab-selected="1")
 </template>
 

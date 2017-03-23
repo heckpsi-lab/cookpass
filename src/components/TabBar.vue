@@ -4,25 +4,25 @@
     md-bottom-bar(md-shift)
       md-bottom-bar-item(
         @click.native="updateTheme(1)",
-        md-iconset="fa fa-2x fa-home",
+        md-icon="fingerprint",
         href="#/",
         :md-active="tabSelected == 1",
       )| Home
       md-bottom-bar-item(
         @click.native="updateTheme(2)",
-        md-iconset="fa fa-2x fa-pencil",
+        md-icon="dashboard",
         href="#/manage",
         :md-active="tabSelected == 2",
       )| Manage
       md-bottom-bar-item(
         @click.native="updateTheme(3)",
-        md-iconset="fa fa-2x fa-cog",
+        md-icon="settings",
         href="#/settings",
         :md-active="tabSelected == 3",
       )| Settings
       md-bottom-bar-item(
         @click.native="updateTheme(4)",
-        md-iconset="fa fa-2x fa-rocket",
+        md-icon="stars",
         href="#/about",
         :md-active="tabSelected == 4",
       )| About

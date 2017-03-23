@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import VueMaterial from 'vue-material';
 import 'vue-material/dist/vue-material.css';
-import 'font-awesome/css/font-awesome.min.css';
 import App from './App';
 import router from './router';
 import './assets/global.stylus';
+import './assets/fonts/fonts.css';
 
 Vue.config.productionTip = false;
 Vue.use(VueMaterial);

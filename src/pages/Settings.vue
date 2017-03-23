@@ -1,6 +1,10 @@
 <template lang="pug">
 .tab-bar-container
-  | Settings
+  md-theme(md-name="brown")
+    md-toolbar(class="md-dense")
+      md-button(class="md-icon-button")
+        md-icon| settings
+      h2(class="md-title" style="flex: 1")| Settings
   tab-bar(tab-selected="3")
 </template>
 
