@@ -36,6 +36,11 @@ module.exports = {
         }
       },
       {
+        test: /\.worker\.js$/,
+        loader: 'worker-loader',
+        include: [resolve('src')]
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig

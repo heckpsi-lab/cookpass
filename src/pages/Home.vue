@@ -9,11 +9,11 @@
       .home-container
         md-input-container(md-has-password)
           label(for="password")
-            | Password
+            | {{ $t('password') }}
           md-input(type="password")
         md-input-container
           label(for="profile")
-            | Profile
+            | {{ $t('profile') }}
           md-select()
             md-subheader| QQ
             md-option(value="zh-cn")| 443539548
@@ -22,20 +22,28 @@
             md-subheader| 微博
             md-option(value="en")| dsh0416@gmail.com
         .cook-button
-          md-button.md-fab.md-size-3x(@click.native="cook")
-            md-icon.md-size-3x(v-if="progress != 100")| build
-            md-icon.md-size-3x(v-if="progress == 100")| done
+          md-button.md-fab.md-size-3x(@click.native="cook", :class="{ 'md-primary': progress >= 100 }")
+            md-icon.md-size-3x(v-if="progress < 100")| restaurant
+            md-icon.md-size-3x(v-if="progress >= 100")| done
           md-spinner(
             :md-size="192",
             :md-stroke="1.2",
             :md-progress="progress",
             v-if="progress != 0 && progress != 100"
           )
+  md-dialog-alert(
+    :md-title="$t('cooked')",
+    :md-content="generated",
+    @close="onClose",
+    ref="dialog",
+  )
   tab-bar(tab-selected="1")
 </template>
 
 <script>
 import TabBar from '@/components/TabBar';
+
+const Worker = require('../worker/progress.worker');
 
 export default {
   name: 'Home',
@@ -45,11 +53,25 @@ export default {
   data() {
     return {
       progress: 0,
+      generated: 'Hello World',
     };
   },
   methods: {
     cook() {
-      this.progress += 10;
+      const worker = new Worker();
+      worker.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        if (data.event === 'progress') {
+          this.progress = data.data;
+        } else if (data.event === 'done') {
+          this.progress = 100;
+          this.generated = data.data;
+          this.$refs.dialog.open();
+        }
+      };
+    },
+    onClose() {
+      this.progress = 0;
     },
   },
 };

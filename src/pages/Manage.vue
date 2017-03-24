@@ -13,6 +13,20 @@
         :length="10",
         :strength="10000",
       )
+      profile-card(
+        software="QQ",
+        account="12345",
+        engine="cook",
+        :length="10",
+        :strength="10000",
+      )
+      profile-card(
+        software="QQ",
+        account="12345",
+        engine="cook",
+        :length="10",
+        :strength="10000",
+      )
     md-button.md-fab
       md-icon| add
   tab-bar(tab-selected="2")

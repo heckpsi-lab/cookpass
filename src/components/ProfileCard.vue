@@ -6,12 +6,12 @@ md-card.profile-card(md-with-hover)
     .md-subhead
       | {{ account }}
   md-card-content
-    | Engine: {{ engine }} <br>
-    | Length: {{ length }} <br>
-    | Strength: {{ strength }}
+    | {{ $t('engine')  }}: {{ engine }} <br>
+    | {{ $t('length')  }}: {{ length }} <br>
+    | {{ $t('strength')  }}: {{ strength }}
   md-card-actions
-    md-button| Edit
-    md-button| Delete
+    md-button| {{ $t('edit') }}
+    md-button| {{ $t('delete') }}
 </template>
 
 <script>
