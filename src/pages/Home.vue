@@ -3,14 +3,16 @@
   md-theme(md-name="blue")
     md-toolbar.md-dense
       md-button.md-icon-button
-        md-icon| fingerprint
-      h2.md-title(style="flex: 1")| {{ $t('cookpass') }}
+        md-icon
+          | fingerprint
+      h2.md-title(style="flex: 1")
+        | {{ $t('cookpass') }}
     .justify-container
       .home-container
         md-input-container(md-has-password)
           label(for="password")
             | {{ $t('password') }}
-          md-input(type="password")
+          md-input(type="password", v-model="password")
         md-input-container
           label(for="profile")
             | {{ $t('profile') }}
@@ -54,14 +56,19 @@ export default {
   data() {
     return {
       progress: 0,
+      password: '',
       generated: 'Hello World',
-      profiles: [],
+      profiles: {},
       profileSelected: null,
     };
   },
   methods: {
     cook() {
       const worker = new Worker();
+      worker.postMessage(JSON.stringify({
+        password: this.password,
+        profile: this.$store.state.config.config[Number(this.profileSelected)],
+      }));
       worker.onmessage = (event) => {
         const data = JSON.parse(event.data);
         if (data.event === 'progress') {

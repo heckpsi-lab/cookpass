@@ -11,7 +11,5 @@ export default new Vuex.Store({
     config,
     preference,
   },
-  plugins: [createPersistedState({
-    paths: ['preference.lang', 'config.config'],
-  })],
+  plugins: [createPersistedState()],
 });

@@ -6,33 +6,26 @@
         md-icon| dashboard
       h2.md-title(style="flex: 1")| {{ $t('manage') }}
     .content-container
-      profile-card(
-        software="QQ",
-        account="12345",
-        engine="cook",
-        :length="10",
-        :strength="10000",
-      )
-      profile-card(
-        software="QQ",
-        account="12345",
-        engine="cook",
-        :length="10",
-        :strength="10000",
-      )
-      profile-card(
-        software="QQ",
-        account="12345",
-        engine="cook",
-        :length="10",
-        :strength="10000",
-      )
-    md-button.md-fab
+      div(v-for="(value, key) in profiles")
+        profile-card(
+          v-on:refresh="refresh()"
+          v-for="profile in value",
+          :key="profile.id",
+          :id="profile.id",
+          :software="profile.software",
+          :account="profile.account",
+          :engine="profile.engine",
+          :length="profile.length",
+          :strength="profile.strength",
+        )
+    md-button.md-fab(href="#/profile/-1")
       md-icon| add
   tab-bar(tab-selected="2")
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import * as types from '@/store/types';
 import TabBar from '@/components/TabBar';
 import ProfileCard from '@/components/ProfileCard';
 
@@ -41,6 +34,22 @@ export default {
   components: {
     TabBar,
     ProfileCard,
+  },
+  data() {
+    return {
+      profiles: {},
+    };
+  },
+  methods: {
+    refresh() {
+      this.profiles = this.getProfiles();
+    },
+    ...mapGetters({
+      getProfiles: types.GET_PROFILES,
+    }),
+  },
+  mounted() {
+    this.refresh();
   },
 };
 </script>

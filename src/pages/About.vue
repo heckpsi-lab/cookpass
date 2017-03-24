@@ -3,8 +3,10 @@
   md-theme(md-name="indigo")
     md-toolbar.md-dense
       md-button.md-icon-button
-        md-icon| stars
-      h2.md-title(style="flex: 1")| {{ $t('about') }}
+        md-icon
+          | stars
+      h2.md-title(style="flex: 1")
+        | {{ $t('about') }}
   tab-bar(tab-selected="4")
 </template>
 

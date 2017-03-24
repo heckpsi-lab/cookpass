@@ -10,6 +10,7 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "crypto-js": "^3.1.9-1",
     "pug": "^2.0.0-beta11",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",

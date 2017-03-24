@@ -3,8 +3,10 @@
   md-theme(md-name="brown")
     md-toolbar.md-dense
       md-button.md-icon-button
-        md-icon| settings
-      h2.md-title(style="flex: 1")| {{ $t('settings') }}
+        md-icon
+          | settings
+      h2.md-title(style="flex: 1")
+        | {{ $t('settings') }}
   .content-container
     md-input-container
       label(for="language")
@@ -24,8 +26,8 @@
 
 <script>
 import { mapMutations } from 'vuex';
-import TabBar from '@/components/TabBar';
 import * as types from '@/store/types';
+import TabBar from '@/components/TabBar';
 
 export default {
   name: 'Settings',
@@ -45,12 +47,14 @@ export default {
     },
     wipe() {
       this.wipeLang();
+      this.wipeConfig();
       this.lang = this.$store.state.preference.lang;
       this.$i18n.locale = this.lang;
     },
     ...mapMutations({
       setLang: types.SET_LANG,
       wipeLang: types.WIPE_LANG,
+      wipeConfig: types.WIPE_CONFIG,
     }),
   },
 };

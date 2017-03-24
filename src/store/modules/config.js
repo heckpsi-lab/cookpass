@@ -1,12 +1,7 @@
 import * as types from '../types';
 
 const state = {
-  config: [
-    { software: 'QQ', account: '12345', engine: 'cook', length: 12, strength: 1000 },
-    { software: 'QQ', account: '12345', engine: 'cook', length: 12, strength: 1000 },
-    { software: 'QQ', account: '12345', engine: 'cook', length: 12, strength: 1000 },
-    { software: '微博', account: '12345', engine: 'cook', length: 12, strength: 1000 },
-  ],
+  config: [],
 };
 
 const getters = {
@@ -36,8 +31,8 @@ const mutations = {
   [types.ADD_CONFIG]: (vuexState, config) => {
     vuexState.config.push(config);
   },
-  [types.EDIT_CONFIG]: (vuexState, id, config) => {
-    vuexState.config[id] = config;
+  [types.EDIT_CONFIG]: (vuexState, config) => {
+    vuexState.config.splice(config.id, 1, config.data);
   },
   [types.DELETE_CONFIG]: (vuexState, id) => {
     vuexState.config.splice(id, 1);

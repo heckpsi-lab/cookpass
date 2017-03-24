@@ -6,17 +6,34 @@ md-card.profile-card(md-with-hover)
     .md-subhead
       | {{ account }}
   md-card-content
-    | {{ $t('engine')  }}: {{ engine }} <br>
-    | {{ $t('length')  }}: {{ length }} <br>
-    | {{ $t('strength')  }}: {{ strength }}
+    | {{ $t('engine') }}: {{ engine }} <br>
+    | {{ $t('length') }}: {{ length }} <br>
+    | {{ $t('strength') }}: {{ strength }}
   md-card-actions
-    md-button| {{ $t('edit') }}
-    md-button| {{ $t('delete') }}
+    md-button(:href="'#/profile/'+id")
+      | {{ $t('edit') }}
+    md-button(@click.native="removeCard()")
+      | {{ $t('delete') }}
+  md-dialog-confirm(
+    :md-title="$t('confirmAlert')",
+    :md-content="$t('areYouSureToDelete')",
+    ref="deleteAlert",
+    :md-ok-text="$t('yep')",
+    :md-cancel-text="$t('nope')",
+    @close="deleteConfirm",
+  )
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+import * as types from '@/store/types';
+
 export default {
   props: {
+    id: {
+      required: true,
+      type: Number,
+    },
     software: {
       required: true,
       type: String,
@@ -47,6 +64,20 @@ export default {
     return {
 
     };
+  },
+  methods: {
+    removeCard() {
+      this.$refs.deleteAlert.open();
+    },
+    deleteConfirm(type) {
+      if (type === 'ok') {
+        this.deleteConfig(this.id);
+        this.$emit('refresh');
+      }
+    },
+    ...mapMutations({
+      deleteConfig: types.DELETE_CONFIG,
+    }),
   },
 };
 </script>

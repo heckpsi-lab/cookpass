@@ -4,6 +4,7 @@ import Home from '@/pages/Home';
 import About from '@/pages/About';
 import Manage from '@/pages/Manage';
 import Settings from '@/pages/Settings';
+import ProfileEditor from '@/pages/ProfileEditor';
 
 Vue.use(Router);
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/settings',
       name: 'Settings',
       component: Settings,
+    },
+    {
+      path: '/profile/:id',
+      name: 'ProfileEditor',
+      component: ProfileEditor,
     },
   ],
 });
