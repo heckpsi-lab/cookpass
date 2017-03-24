@@ -14,13 +14,12 @@
         md-input-container
           label(for="profile")
             | {{ $t('profile') }}
-          md-select()
-            md-subheader| QQ
-            md-option(value="zh-cn")| 443539548
-            md-option(value="zh-cn")| 443539548
-            md-option(value="zh-cn")| 443539548
-            md-subheader| 微博
-            md-option(value="en")| dsh0416@gmail.com
+          md-select(v-model="profileSelected")
+            div(v-for="(value, key) in profiles")
+              md-subheader
+                | {{ key }}
+              md-option(v-for="profile in value", :value="profile.id", :key="profile.id")
+                | {{ profile.account }}
         .cook-button
           md-button.md-fab.md-size-3x(@click.native="cook", :class="{ 'md-primary': progress >= 100 }")
             md-icon.md-size-3x(v-if="progress < 100")| restaurant
@@ -41,6 +40,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import * as types from '@/store/types';
 import TabBar from '@/components/TabBar';
 
 const Worker = require('../worker/progress.worker');
@@ -54,6 +55,8 @@ export default {
     return {
       progress: 0,
       generated: 'Hello World',
+      profiles: [],
+      profileSelected: null,
     };
   },
   methods: {
@@ -73,6 +76,12 @@ export default {
     onClose() {
       this.progress = 0;
     },
+    ...mapGetters({
+      getProfiles: types.GET_PROFILES,
+    }),
+  },
+  mounted() {
+    this.profiles = this.getProfiles();
   },
 };
 </script>

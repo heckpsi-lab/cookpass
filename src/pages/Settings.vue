@@ -25,7 +25,7 @@
 <script>
 import { mapMutations } from 'vuex';
 import TabBar from '@/components/TabBar';
-import * as types from '../store/types';
+import * as types from '@/store/types';
 
 export default {
   name: 'Settings',
