@@ -9,30 +9,35 @@ md-theme(md-name="blue")
   .content-container
     md-input-container
       label
-        | Software
+        | {{ $t('software') }}
       md-input(v-model="software", type="text", required)
     md-input-container
       label
-        | Account
+        | {{ $t('account') }}
       md-input(v-model="account", type="text", required)
     md-input-container
       label
-        | Encrypt engine
+        | {{ $t('engine') }}
       md-select(v-model="engine", required)
         md-option(value="cook")
-          | Cook Engine (Recommended)
+          | {{ $t('cook') }}
         md-option(value="passnexuser")
-          | PassNexuser Engine (Deprecated)
+          | {{ $t('passnexuser') }}
     md-input-container
       label
-        | Password Length (8-20)
+        | {{ $t('length') }}
       md-input(v-model="length", type="Number", required)
     md-input-container
       label
-        | Encrypt Strength (1-10000)
+        | {{ $t('strength') }}
       md-input(v-model="strength", type="Number", required)
     md-button.md-raised.md-primary#save(@click.native="save()")
       | {{ $t('save') }}
+  md-dialog-alert(
+    :md-title="$t('validation')",
+    :md-content-html="errorMessage",
+    ref="dialog",
+  )
 </template>
 
 <script>
@@ -48,10 +53,45 @@ export default {
       engine: '',
       length: null,
       strength: null,
+      errorMessage: '',
     };
   },
   methods: {
     save() {
+      // Validate first
+      this.errorMessage = '';
+      if (this.software === '') {
+        this.errorMessage += this.$t('softwareEmpty');
+        this.errorMessage += '<br>';
+      }
+      if (this.account === '') {
+        this.errorMessage += this.$t('accountEmpty');
+        this.errorMessage += '<br>';
+      }
+      if (this.engine === '') {
+        this.errorMessage += this.$t('engineEmpty');
+        this.errorMessage += '<br>';
+      }
+      if (Number(this.length) < 6) {
+        this.errorMessage += this.$t('lengthTooShort');
+        this.errorMessage += '<br>';
+      }
+      if (Number(this.length) > 16) {
+        this.errorMessage += this.$t('lengthTooLong');
+        this.errorMessage += '<br>';
+      }
+      if (Number(this.strength) < 10) {
+        this.errorMessage += this.$t('strengthTooShort');
+        this.errorMessage += '<br>';
+      }
+      if (Number(this.strength) > 100000) {
+        this.errorMessage += this.$t('strengthTooLong');
+        this.errorMessage += '<br>';
+      }
+      if (this.errorMessage !== '') {
+        this.$refs.dialog.open();
+        return;
+      }
       if (this.id === -1) {
         this.addConfig({
           software: this.software,
