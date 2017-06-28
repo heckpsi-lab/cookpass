@@ -16,7 +16,7 @@
         p
           a(href="https://github.com/heckpsi-lab/cookpass")
             | GitHub 
-          | | v0.1 alpha
+          | | v0.1.1 alpha
         
   tab-bar(tab-selected="4")
 </template>

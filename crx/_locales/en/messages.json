@@ -1,0 +1,8 @@
+{
+  "appName": {
+    "message": "CookPass"
+  },
+  "appDesc": {
+    "message": "CookPass is a password salt plugin, to generate your password without saving it to avoid potential security problems when saving or transferring."
+  }
+}
