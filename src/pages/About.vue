@@ -7,6 +7,8 @@
           | stars
       h2.md-title(style="flex: 1")
         | {{ $t('about') }}
+    .content-container
+      | Hello
   tab-bar(tab-selected="4")
 </template>
 

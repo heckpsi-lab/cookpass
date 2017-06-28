@@ -33,6 +33,7 @@ export default {
     strengthTooLong: 'Strength is too strong (<100000)',
     passnexuser: 'PassNexuser (Deprecated)',
     cook: 'Cook Engine (Recommended)',
+    addProfile: 'Add new profile',
   },
   'zh-cn': {
     cookpass: '煮密码',
@@ -68,5 +69,6 @@ export default {
     strengthTooLong: '加密强度太强 (<100000)',
     passnexuser: 'PassNexuser (不推荐)',
     cook: 'Cook Engine (推荐)',
+    addProfile: '添加配置文件',
   },
 };

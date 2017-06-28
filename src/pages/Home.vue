@@ -22,6 +22,9 @@
                 | {{ key }}
               md-option(v-for="profile in value", :value="profile.id", :key="profile.id")
                 | {{ profile.account }}
+            div
+              md-option(value="", @click.native="$router.push('/manage')")
+                | {{ $t('addProfile') }}
         .cook-button
           md-button.md-fab.md-size-3x(@click.native="cook", :class="{ 'md-primary': progress >= 100 }")
             md-icon.md-size-3x(v-if="progress < 100")| restaurant

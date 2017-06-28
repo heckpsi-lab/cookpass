@@ -53,7 +53,7 @@ export default {
       engine: '',
       length: null,
       strength: null,
-      errorMessage: '',
+      errorMessage: '<div></div>',
     };
   },
   methods: {
